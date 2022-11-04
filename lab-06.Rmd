@@ -8,6 +8,7 @@ output: github_document
 
 ```{r load-packages, message=FALSE}
 library(tidyverse) 
+library(lubridate)
 ```
 
 
@@ -45,8 +46,12 @@ df <- tribble(
 ### Exercise 2
 
 ```{r better-viz}
-ggplot(data = df,
-       mapping = aes(x = date, y = mask)) +
+df %>%
+  mutate(
+    mdy_format = mdy(date)
+  ) %>%
+
+  ggplot(mapping = aes(x = mdy_format, y = mask)) +
   geom_line()
 ```
 
