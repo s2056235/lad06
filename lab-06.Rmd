@@ -14,7 +14,7 @@ library(tidyverse)
 ### Exercise 1
 
 ```{r create-data}
-df <- mask(
+df <- tribble(
   ~date, ~mask, ~nomask,
   "7/12/2020", 25, 9,
   "7/13/2020", 20, 9,
@@ -45,7 +45,9 @@ df <- mask(
 ### Exercise 2
 
 ```{r better-viz}
-
+ggplot(data = df,
+       mapping = aes(x = date, y = mask)) +
+  geom_line()
 ```
 
 
