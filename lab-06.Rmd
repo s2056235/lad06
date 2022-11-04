@@ -51,8 +51,9 @@ df %>%
     mdy_format = mdy(date)
   ) %>%
 
-  ggplot(mapping = aes(x = mdy_format, y = mask)) +
-  geom_line()
+  ggplot(mapping = aes(x = mdy_format)) +
+  geom_line(mapping = aes(y = mask, colour = "blue")) +
+  geom_line(mapping = aes(y = nomask, colour = "orange"))
 ```
 
 
